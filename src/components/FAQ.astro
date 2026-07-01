@@ -1,0 +1,59 @@
+---
+// src/components/FAQ.astro
+const faqs = [
+  { q: 'Are you licensed and insured in Connecticut?',                      a: 'Yes. MDJ Electric, LLC is fully licensed and insured to perform electrical work in Connecticut for both residential and commercial clients. We carry general liability insurance and worker\'s compensation, so you\'re completely protected on every job.' },
+  { q: 'Do you offer free estimates?',                                       a: 'Absolutely! We offer free, no-obligation estimates for all projects. Simply contact us through the form below, call us at (203) 723-3902, or send us an email. We\'ll schedule a time to assess the project and provide a clear, detailed quote.' },
+  { q: 'What areas in Connecticut do you serve?',                           a: 'We are based in Prospect, CT and proudly serve homeowners and businesses throughout Connecticut, including Cheshire, Wolcott, Waterbury, Naugatuck, Southbury, Derby, Oxford, and surrounding communities. Contact us to confirm your area.' },
+  { q: 'How long does an electrical panel upgrade take?',                   a: 'Most panel upgrades are completed in a single day. Depending on the complexity — the size of the panel, the number of circuits, and permit requirements — it can range from 4 to 8 hours. We\'ll pull all necessary permits and schedule with your utility company as needed.' },
+  { q: 'Do you install Generac generators?',                                a: 'Yes! We specialize in Generac standby generator installations. We handle the full process — from site assessment to installation, transfer switch setup, and final testing — so your home or business is protected during any power outage.' },
+  { q: 'Can you install an EV charger at my home?',                        a: 'Yes, we install Level 2 (240V) EV charging stations for all major vehicle brands. We\'ll assess your panel capacity, run the dedicated circuit, and mount the charger in your preferred location — garage, driveway, or exterior wall. Most installs are done in a few hours.' },
+  { q: 'What should I do if I have a tripping breaker or electrical emergency?', a: 'If a breaker repeatedly trips, do not keep resetting it — this can indicate a serious problem. Call us at (203) 723-3902 as soon as possible. In a true electrical emergency involving fire or sparks, call 911 first, turn off the main breaker if safe to do so, and then contact us.' },
+  { q: 'Do you pull permits for electrical work?',                          a: 'Yes, always. We pull all required permits for applicable work in compliance with Connecticut state code. This protects you as a homeowner and ensures the work passes inspection. Hiring an unlicensed contractor who skips permits can create serious liability and insurance issues.' },
+];
+---
+
+<section id="faq" class="faq-section">
+  <div class="faq-inner">
+
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title" style="font-size:clamp(1.8rem, 3.5vw, 2.8rem); color:#fff;">
+        FREQUENTLY ASKED <span class="gold-text">QUESTIONS</span>
+      </h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="reveal" id="faq-list">
+      {faqs.map((item) => (
+        <div class="faq-item">
+          <button class="faq-btn" data-faq-btn>
+            {item.q}
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-body">
+            <p>{item.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="reveal" style="text-align:center; margin-top:48px;">
+      <p style="color:#888; margin-bottom:20px;">Still have questions? We're happy to help.</p>
+      <a href="#contact" class="btn-gold">Ask Us Anything</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-section { padding: 100px 0; background: #0d0d0d; }
+  .faq-inner   { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .gold-line   { width: 60px; height: 3px; background: linear-gradient(90deg,#f1c600,#f5d633); margin: 20px auto 0; border-radius: 2px; }
+
+  @media (max-width: 540px) {
+    .faq-section { padding: 60px 0; }
+    .faq-inner   { padding: 0 16px; }
+    .faq-btn     { font-size: 0.95rem; padding: 18px 0; }
+    .faq-body p  { font-size: 0.88rem; }
+  }
+</style>

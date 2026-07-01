@@ -1,11 +1,125 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+import Layout   from '../layouts/Layout.astro';
+import Navbar   from '../components/Navbar.astro';
+import Hero     from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Gallery  from '../components/Gallery.astro';
+import FAQ      from '../components/FAQ.astro';
+import About    from '../components/About.astro';
+import Contact  from '../components/Contact.astro';
+import Footer   from '../components/Footer.astro';
+import BoltDivider from '../components/BoltDivider.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <Navbar />
+
+  <Hero />
+
+  <BoltDivider bg="#0f0f0f" />
+
+  <Services />
+
+  <BoltDivider bg="#111111" />
+
+  <Gallery />
+
+  <BoltDivider bg="#0d0d0d" />
+
+  <FAQ />
+
+  <BoltDivider bg="#111111" />
+
+  <About />
+
+  <BoltDivider bg="#0d0d0d" />
+
+  <Contact />
+
+  <Footer />
 </Layout>
+
+<script>
+  // ── Navbar scroll effect ──────────────────────────────
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 40);
+    updateActiveNav();
+  });
+
+  // ── Active nav highlight ──────────────────────────────
+  function updateActiveNav(): void {
+    const sectionIds = ['home', 'services', 'gallery', 'faq', 'about', 'contact'];
+    let current = 'home';
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    }
+    document.querySelectorAll<HTMLAnchorElement>('.nav-link').forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+  }
+
+  // ── Mobile menu ───────────────────────────────────────
+  const hamburger   = document.getElementById('hamburger');
+  const mobileMenu  = document.getElementById('mobile-menu');
+  const navLinks    = document.getElementById('nav-links');
+
+  hamburger?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('open');
+  });
+
+  // Close mobile menu when a link is clicked
+  mobileMenu?.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ── Responsive hamburger visibility ──────────────────
+  function checkMobile(): void {
+    const isNarrow = window.innerWidth < 900;
+    if (hamburger) hamburger.style.display  = isNarrow ? 'block' : 'none';
+    if (navLinks)  navLinks.style.display   = isNarrow ? 'none'  : 'flex';
+    if (!isNarrow) mobileMenu?.classList.remove('open');
+  }
+  window.addEventListener('resize', checkMobile);
+  checkMobile();
+
+  // ── FAQ accordion ────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>('[data-faq-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling as HTMLElement | null;
+      const icon = btn.querySelector<HTMLElement>('.faq-icon');
+      const isOpen = body?.classList.contains('open') ?? false;
+
+      // Close all
+      document.querySelectorAll<HTMLElement>('.faq-body.open').forEach((b) => {
+        b.classList.remove('open');
+        const prevIcon = b.previousElementSibling?.querySelector<HTMLElement>('.faq-icon');
+        if (prevIcon) { prevIcon.textContent = '+'; prevIcon.style.transform = ''; }
+      });
+
+      // Open clicked (if it wasn't already open)
+      if (!isOpen && body && icon) {
+        body.classList.add('open');
+        icon.textContent   = '−';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // ── Scroll reveal ─────────────────────────────────────
+  const revealEls = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer  = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => (entry.target as HTMLElement).classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  revealEls.forEach((el) => observer.observe(el));
+</script>

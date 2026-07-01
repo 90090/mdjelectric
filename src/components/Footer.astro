@@ -1,0 +1,185 @@
+---
+// src/components/Footer.astro
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <img src="/images/logoMDJnobackground.png" alt="MDJ Electric, LLC" class="footer-logo" />
+      <p class="footer-tagline">Family-owned electrical contractor serving Connecticut homeowners and businesses with integrity since day one.</p>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Contact Us</div>
+      <div class="footer-links">
+        <a href="tel:2037233902" class="footer-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          (203) 723-3902
+        </a>
+        <a href="mailto:mdjelectricllc@gmail.com" class="footer-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          mdjelectricllc@gmail.com
+        </a>
+        <div class="footer-info-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Prospect, CT
+        </div>
+        <div class="footer-info-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          Mon–Fri: 7AM – 5PM
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-heading">Serving Connecticut</div>
+      <div class="footer-area">
+        Prospect · Cheshire · Wolcott<br />
+        Waterbury · Naugatuck<br />
+        Southbury · Derby · Oxford<br />
+        &amp; surrounding areas
+      </div>
+    </div>
+
+    <div class="footer-cta-card">
+      <div class="footer-cta-title">Ready to Get Started?</div>
+      <p class="footer-cta-sub">Let's power your next project.</p>
+      <a href="#contact" class="btn-gold footer-cta-btn">
+        <svg width="13" height="13" viewBox="0 0 12 20" fill="currentColor"><path d="M8 0 L2 10 H7 L1 20 L12 7 H7 Z"/></svg>
+        Get a Free Estimate
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Chamber row -->
+  <div class="chamber-row">
+    <div class="chamber-label">Proud Member Of</div>
+    <div class="chamber-badge">
+      <img src="/images/wrc-logo.png" alt="Waterbury Regional Chamber of Commerce" />
+    </div>
+    <div class="chamber-badge">
+      <img src="/images/cheshireprospectchamber.webp" alt="Cheshire-Prospect Chamber of Commerce" />
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <div class="footer-copy">© {year} MDJ Electric, LLC. All Rights Reserved.</div>
+    <div class="footer-badges">
+      <span>Licensed</span>
+      <span class="footer-dot">·</span>
+      <span>Insured</span>
+      <span class="footer-dot">·</span>
+      <span>Professional</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #0a0a0a;
+    border-top: 1px solid rgba(241,198,0,0.15);
+    padding: 60px 0 0;
+  }
+
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+  }
+
+  .footer-logo   { height: 52px; width: auto; object-fit: contain; margin-bottom: 16px; display: block; }
+  .footer-tagline { color: #666; font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
+
+  .footer-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 0.9rem;
+    color: #f1c600; letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .footer-links { display: flex; flex-direction: column; gap: 10px; }
+  .footer-link {
+    color: #999; font-size: 0.88rem; text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    transition: color .2s;
+  }
+  .footer-link:hover { color: #f1c600; }
+  .footer-info-row { color: #999; font-size: 0.88rem; display: flex; align-items: center; gap: 8px; }
+  .footer-area  { color: #666; font-size: 0.85rem; line-height: 2; }
+
+  .footer-cta-card {
+    background: linear-gradient(135deg,rgba(241,198,0,0.12),rgba(241,198,0,0.05));
+    border: 1px solid rgba(241,198,0,0.2);
+    border-radius: 10px; padding: 24px; text-align: center;
+  }
+  .footer-cta-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    color: #fff; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .footer-cta-sub  { color: #777; font-size: 0.82rem; margin-bottom: 18px; line-height: 1.6; }
+  .footer-cta-btn  { width: 100%; justify-content: center; font-size: 0.82rem; padding: 12px; }
+
+  /* Chamber */
+  .chamber-row {
+    max-width: 1280px; margin: 48px auto 0;
+    padding: 28px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: center; gap: 20px;
+  }
+  .chamber-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 0.85rem;
+    color: #f1c600; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* Bottom bar */
+  .footer-bottom {
+    max-width: 1280px; margin: 0 auto;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-copy { color: #444; font-size: 0.78rem; }
+  .footer-badges {
+    display: flex; gap: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #444;
+  }
+  .footer-dot { color: #f1c600; }
+
+  /* ── Tablet ── */
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+
+  /* ── Phone ── */
+  @media (max-width: 540px) {
+    .site-footer  { padding: 48px 0 0; }
+    .footer-grid  { grid-template-columns: 1fr; gap: 28px; padding: 0 16px; }
+    .footer-tagline { max-width: 100%; }
+    .chamber-row  { padding: 20px 16px; gap: 16px; }
+    .footer-bottom { padding: 16px; flex-direction: column; text-align: center; }
+    .footer-badges { justify-content: center; flex-wrap: wrap; gap: 12px; }
+  }
+</style>

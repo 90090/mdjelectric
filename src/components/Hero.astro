@@ -1,0 +1,218 @@
+---
+// src/components/Hero.astro
+---
+
+<section id="home" class="hero-section">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="lightning-bg"></div>
+
+  <div class="hero-grid">
+
+    <!-- Left: copy -->
+    <div class="hero-copy">
+      <div class="hero-badge animate-hero">
+        <svg width="14" height="14" viewBox="0 0 12 20" fill="#f1c600"><path d="M8 0 L2 10 H7 L1 20 L12 7 H7 Z"/></svg>
+        <span>CONNECTICUT'S TRUSTED ELECTRICIAN</span>
+      </div>
+
+      <h1 class="section-title hero-h1 animate-hero delay-1">
+        POWERING HOMES &amp;<br />BUSINESSES WITH<br /><span class="gold-text">INTEGRITY</span>
+      </h1>
+
+      <p class="hero-sub animate-hero delay-2">
+        Reliable electrical services for residential and commercial clients across Connecticut.
+        Family-owned, licensed &amp; insured, with quality you can trust.
+      </p>
+
+      <div class="hero-ctas animate-hero delay-3 btn-stack">
+        <a href="#contact" class="btn-gold">
+          <svg width="14" height="14" viewBox="0 0 12 20" fill="currentColor"><path d="M8 0 L2 10 H7 L1 20 L12 7 H7 Z"/></svg>
+          Get a Free Estimate
+        </a>
+        <a href="tel:2037233902" class="btn-outline">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          Call or Text (203) 723-3902
+        </a>
+      </div>
+
+      <div class="trust-badges animate-hero delay-4">
+        <div class="trust-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+          </svg>
+          <span>LICENSED &amp; INSURED</span>
+        </div>
+        <div class="trust-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+          <span>FAMILY-OWNED</span>
+        </div>
+        <div class="trust-badge">
+          <svg width="20" height="20" viewBox="0 0 12 20" fill="#f1c600"><path d="M8 0 L2 10 H7 L1 20 L12 7 H7 Z"/></svg>
+          <span>QUALITY YOU CAN TRUST</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: family photo -->
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-glow"></div>
+        <img src="/images/family-photo.JPG" alt="The MDJ Electric family" class="hero-photo-fade" />
+      </div>
+      <div class="hero-pill-top">⭐ 5-STAR RATED</div>
+      <div class="hero-pill-btm">PROSPECT, CT</div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111 40%, #1a1208 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+  }
+
+  .hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .hero-copy { display: flex; flex-direction: column; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(241,198,0,0.1);
+    border: 1px solid rgba(241,198,0,0.25);
+    border-radius: 4px;
+    padding: 6px 14px;
+    margin-bottom: 24px;
+    width: fit-content;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: #f1c600;
+  }
+
+  .hero-h1 { font-size: clamp(2.4rem, 5vw, 4.5rem); margin-bottom: 24px; color: #fff; }
+
+  .hero-sub {
+    color: #aaa;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #fff;
+  }
+
+  /* Photo side */
+  .hero-photo-wrap { position: relative; }
+  .hero-photo-frame {
+    background: linear-gradient(135deg, #1a1a1a, #222);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
+  }
+  .hero-photo-glow {
+    position: absolute; top: -20px; right: -20px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(241,198,0,0.1), transparent 70%);
+    pointer-events: none; z-index: 1;
+  }
+  .hero-pill-top {
+    position: absolute; top: -16px; left: -16px;
+    background: #f1c600; color: #111;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em;
+    padding: 8px 14px; border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(241,198,0,0.4); z-index: 2;
+  }
+  .hero-pill-btm {
+    position: absolute; bottom: -16px; right: -16px;
+    background: #1a1a1a;
+    border: 1px solid rgba(241,198,0,0.3);
+    color: #f1c600;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em;
+    padding: 8px 14px; border-radius: 4px; z-index: 2;
+  }
+
+  /* ── Tablet ── */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      padding: 100px 24px 60px;
+      gap: 48px;
+    }
+    .hero-photo-wrap {
+      order: -1;
+      max-width: 320px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); }
+    .hero-sub { font-size: 0.98rem; max-width: 100%; }
+  }
+
+  /* ── Phone ── */
+  @media (max-width: 540px) {
+    .hero-grid { padding: 88px 16px 48px; gap: 32px; }
+    .hero-photo-wrap { max-width: 260px; }
+    .hero-pill-top { left: 0; top: -12px; font-size: 0.7rem; padding: 6px 10px; }
+    .hero-pill-btm { right: 0; bottom: -12px; font-size: 0.7rem; padding: 6px 10px; }
+    .hero-badge { font-size: 0.72rem; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn-gold,
+    .hero-ctas .btn-outline { width: 100%; justify-content: center; }
+    .trust-badge { font-size: 0.78rem; padding: 8px 12px; }
+  }
+</style>

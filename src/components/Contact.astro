@@ -1,0 +1,211 @@
+---
+// src/components/Contact.astro
+import ContactForm from './ContactForm';
+---
+
+<section id="contact" class="contact-section">
+  <div class="contact-glow"></div>
+
+  <div class="contact-inner">
+
+    <div class="reveal" style="text-align:center; margin-bottom:60px;">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title" style="font-size:clamp(1.8rem, 3.5vw, 2.8rem); color:#fff;">
+        READY TO GET <span class="gold-text">STARTED?</span>
+      </h2>
+      <p class="contact-sub">Let's power your next project. Contact us for a free estimate — we respond fast.</p>
+    </div>
+
+    <div class="contact-grid reveal">
+
+      <!-- Info cards -->
+      <div class="contact-info">
+
+        <div class="contact-card contact-info-card">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Phone / Text</div>
+            <a href="tel:2037233902" class="info-value">(203) 723-3902</a>
+            <div class="info-hint">Call or text anytime</div>
+          </div>
+        </div>
+
+        <div class="contact-card contact-info-card">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Email</div>
+            <a href="mailto:mdjelectricllc@gmail.com" class="info-value info-email">mdjelectricllc@gmail.com</a>
+            <div class="info-hint">We reply within 24 hours</div>
+          </div>
+        </div>
+
+        <div class="contact-card contact-info-card">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Location</div>
+            <div class="info-value">Prospect, CT</div>
+            <div class="info-hint">Serving all of Connecticut</div>
+          </div>
+        </div>
+
+        <div class="contact-card contact-info-card">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1c600" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="info-label">Hours</div>
+            <div class="info-value">Mon–Fri: 7AM – 5PM</div>
+            <div class="info-hint">Weekend availability may vary</div>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#aaa">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="1.8">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Form -->
+      <div class="form-panel">
+        <h3 class="form-title">Request a Free Estimate</h3>
+        <p class="form-sub">Fill out the form and we'll get back to you within 24 hours.</p>
+        <ContactForm client:load />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section  { padding: 100px 0; background: #0d0d0d; position: relative; }
+  .contact-glow     {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+    background: linear-gradient(to top, rgba(241,198,0,0.03), transparent);
+    pointer-events: none;
+  }
+  .contact-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  .contact-sub   { color: #888; max-width: 500px; margin: 16px auto 0; line-height: 1.7; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .info-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(241,198,0,0.1);
+    border: 1px solid rgba(241,198,0,0.25);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .info-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.15em; color: #666;
+    text-transform: uppercase; margin-bottom: 3px;
+  }
+  .info-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 1.1rem; color: #fff;
+    text-decoration: none; display: block;
+  }
+  .info-value:hover { color: #f1c600; }
+  .info-email { font-size: 0.95rem; word-break: break-all; }
+  .info-hint  { font-size: 0.8rem; color: #666; margin-top: 2px; }
+
+  .social-row { display: flex; gap: 12px; }
+  .social-btn {
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: border-color .25s;
+  }
+  .social-btn:hover { border-color: rgba(241,198,0,0.4); }
+
+  .form-panel {
+    background: linear-gradient(135deg,#1A1A1A,#1E1E1E);
+    border: 1px solid rgba(241,198,0,0.15);
+    border-radius: 12px;
+    padding: 36px;
+  }
+  .form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1.4rem;
+    color: #fff; margin-bottom: 6px; text-transform: uppercase;
+  }
+  .form-sub { color: #777; font-size: 0.88rem; margin-bottom: 24px; }
+
+  /* ── Tablet / phone ── */
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    /* show info cards in 2-col grid on tablet */
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .social-row { grid-column: span 2; }
+  }
+
+  @media (max-width: 540px) {
+    .contact-section { padding: 60px 0; }
+    .contact-inner   { padding: 0 16px; }
+    .contact-info    { grid-template-columns: 1fr; }
+    .social-row      { grid-column: span 1; }
+    .form-panel      { padding: 24px 18px; }
+    .form-title      { font-size: 1.2rem; }
+    .info-email      { font-size: 0.82rem; }
+  }
+
+  /* React form name row — stacks on phone */
+  :global(.form-name-row) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 480px) {
+    :global(.form-name-row) { grid-template-columns: 1fr; }
+  }
+</style>
