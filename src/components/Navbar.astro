@@ -11,9 +11,9 @@
     <div id="nav-links" class="nav-links">
       <a href="#home"     class="nav-link active">Home</a>
       <a href="#services" class="nav-link">Services</a>
-      <a href="#gallery"  class="nav-link">Our Work</a>
-      <a href="#faq"      class="nav-link">FAQ</a>
       <a href="#about"    class="nav-link">About Us</a>
+      <a href="#gallery"  class="nav-link">Our Work</a>
+      <a href="#faq"      class="nav-link">Reviews &amp; FAQ</a>
       <a href="#contact"  class="nav-link">Contact</a>
     </div>
 
@@ -37,35 +37,33 @@
   <div id="mobile-menu">
     <a href="#home"     class="nav-link">Home</a>
     <a href="#services" class="nav-link">Services</a>
-    <a href="#gallery"  class="nav-link">Our Work</a>
-    <a href="#faq"      class="nav-link">FAQ</a>
     <a href="#about"    class="nav-link">About Us</a>
+    <a href="#gallery"  class="nav-link">Our Work</a>
+    <a href="#faq"      class="nav-link">Reviews &amp; FAQ</a>
     <a href="#contact"  class="nav-link">Contact</a>
   </div>
 </nav>
 
 <style>
   .nav-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
+    max-width: 1280px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; height: 70px;
   }
   .nav-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
   .nav-logo img { height: 48px; width: auto; object-fit: contain; }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
   .nav-actions { display: flex; align-items: center; gap: 12px; }
   .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
   .nav-cta { font-size: 0.8rem; padding: 10px 18px; }
 
+  @media (max-width: 1024px) {
+    .nav-links { gap: 18px; }
+    .nav-link { font-size: 0.85rem; }
+  }
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
   }
-
   @media (max-width: 480px) {
     .nav-inner { padding: 0 16px; }
     .nav-logo img { height: 38px; }

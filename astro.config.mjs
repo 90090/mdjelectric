@@ -1,14 +1,14 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  integrations: [
-    react(),
-  ],
+  integrations: [react(),sitemap()],
+  output: 'static',
+  site: 'https://mdjelectric.com',
+
   vite: {
     plugins: [tailwindcss()],
   },
-  // Static output for CloudFront + S3 distribution
-  output: 'static',
 });

@@ -1,12 +1,12 @@
 ---
 // src/components/Gallery.astro
 const items = [
-  { src: '/images/kitchenlighting.JPG',              alt: 'Kitchen lighting installation',   label: 'Kitchen Lighting Installation' },
-  { src: '/images/Pilatesstudioprospect.JPG',        alt: 'Full pilates studio wiring',      label: 'Full Pilates Studio Wiring'    },
-  { src: '/images/Surgicalvetveterinarianlight.png', alt: 'Surgical veterinary lighting',    label: 'Surgical Veterinary Lighting'  },
-  { src: '/images/teslacharger.png',                 alt: 'EV charger installation',         label: 'EV Charger Install'            },
-  { src: '/images/Ringfloodlight.png',               alt: 'Full outdoor home rewire',        label: 'Full Outdoor Home Rewire'      },
-  { src: '/images/coffeeshop.jpg',                   alt: 'Full coffee shop wiring',         label: 'Full Coffee Shop Wiring'       },
+  { src: '/images/kitchenlighting.JPG',              alt: 'Kitchen electrical upgrade',         label: 'Kitchen Electrical Upgrade'        },
+  { src: '/images/Pilatesstudioprospect.JPG',        alt: 'Full Pilates studio wiring',         label: 'Full Pilates Studio Wiring'         },
+  { src: '/images/Surgicalvetveterinarianlight.png', alt: 'Veterinary surgical lighting',       label: 'Veterinary Surgical Lighting'       },
+  { src: '/images/teslacharger.png',                 alt: 'EV charger installation',            label: 'EV Charger Installation'            },
+  { src: '/images/Ringfloodlight.png',               alt: 'Outdoor electrical and surveillance', label: 'Outdoor Electrical &amp; Surveillance' },
+  { src: '/images/coffeeshop.jpg',                   alt: 'Commercial electrical projects',     label: 'Commercial Electrical Projects'     },
 ];
 ---
 
@@ -14,9 +14,9 @@ const items = [
   <div class="gallery-inner">
 
     <div class="reveal" style="text-align:center; margin-bottom:60px;">
-      <div class="section-eyebrow">Our Work</div>
+      <div class="section-eyebrow">Project Portfolio</div>
       <h2 class="section-title" style="font-size:clamp(1.8rem, 3.5vw, 2.8rem); color:#fff;">
-        QUALITY YOU <span class="gold-text">CAN SEE</span>
+        OUR <span class="gold-text">WORK</span>
       </h2>
       <div class="gold-line"></div>
     </div>
@@ -26,7 +26,7 @@ const items = [
         <div class="gallery-item">
           <img src={item.src} alt={item.alt} loading="lazy" />
           <div class="gallery-overlay"></div>
-          <div class="gallery-label">{item.label}</div>
+          <div class="gallery-label" set:html={item.label} />
         </div>
       ))}
     </div>
@@ -35,8 +35,7 @@ const items = [
       <a href="#contact" class="btn-gold">
         Start Your Project
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="5" y1="12" x2="19" y2="12"/>
-          <polyline points="12 5 19 12 12 19"/>
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
       </a>
     </div>
@@ -50,10 +49,8 @@ const items = [
   .gold-line       { width: 60px; height: 3px; background: linear-gradient(90deg,#f1c600,#f5d633); margin: 20px auto 0; border-radius: 2px; }
 
   .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 220px;
-    gap: 8px;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px; gap: 8px;
   }
 
   @media (max-width: 768px) {
@@ -61,7 +58,6 @@ const items = [
     .gallery-inner   { padding: 0 16px; }
     .gallery-grid    { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
   }
-
   @media (max-width: 480px) {
     .gallery-section { padding: 60px 0; }
     .gallery-grid    { grid-template-columns: 1fr; grid-auto-rows: 200px; gap: 6px; }

@@ -1,14 +1,14 @@
 ---
 // src/pages/index.astro
-import Layout   from '../layouts/Layout.astro';
-import Navbar   from '../components/Navbar.astro';
-import Hero     from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import Gallery  from '../components/Gallery.astro';
-import FAQ      from '../components/FAQ.astro';
-import About    from '../components/About.astro';
-import Contact  from '../components/Contact.astro';
-import Footer   from '../components/Footer.astro';
+import Layout     from '../layouts/Layout.astro';
+import Navbar     from '../components/Navbar.astro';
+import Hero       from '../components/Hero.astro';
+import Services   from '../components/Services.astro';
+import About      from '../components/About.astro';
+import Gallery    from '../components/Gallery.astro';
+import FAQ        from '../components/FAQ.astro';
+import Contact    from '../components/Contact.astro';
+import Footer     from '../components/Footer.astro';
 import BoltDivider from '../components/BoltDivider.astro';
 ---
 
@@ -18,41 +18,36 @@ import BoltDivider from '../components/BoltDivider.astro';
   <Hero />
 
   <BoltDivider bg="#0f0f0f" />
-
   <Services />
 
   <BoltDivider bg="#111111" />
+  <About />
 
+  <BoltDivider bg="#111111" />
   <Gallery />
 
   <BoltDivider bg="#0d0d0d" />
-
   <FAQ />
 
-  <BoltDivider bg="#111111" />
-
-  <About />
-
   <BoltDivider bg="#0d0d0d" />
-
   <Contact />
 
   <Footer />
 </Layout>
 
 <script>
-  // ── Navbar scroll effect ──────────────────────────────
+  // ── Navbar scroll ─────────────────────────────────────
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar?.classList.toggle('scrolled', window.scrollY > 40);
     updateActiveNav();
   });
 
-  // ── Active nav highlight ──────────────────────────────
+  // ── Active nav — matches DOM order ────────────────────
   function updateActiveNav(): void {
-    const sectionIds = ['home', 'services', 'gallery', 'faq', 'about', 'contact'];
+    const ids = ['home', 'services', 'about', 'gallery', 'faq', 'contact'];
     let current = 'home';
-    for (const id of sectionIds) {
+    for (const id of ids) {
       const el = document.getElementById(id);
       if (el && window.scrollY >= el.offsetTop - 120) current = id;
     }
@@ -62,25 +57,20 @@ import BoltDivider from '../components/BoltDivider.astro';
   }
 
   // ── Mobile menu ───────────────────────────────────────
-  const hamburger   = document.getElementById('hamburger');
-  const mobileMenu  = document.getElementById('mobile-menu');
-  const navLinks    = document.getElementById('nav-links');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks   = document.getElementById('nav-links');
 
-  hamburger?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('open');
-  });
+  hamburger?.addEventListener('click', () => mobileMenu?.classList.toggle('open'));
+  mobileMenu?.querySelectorAll('.nav-link').forEach((link) =>
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'))
+  );
 
-  // Close mobile menu when a link is clicked
-  mobileMenu?.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
-
-  // ── Responsive hamburger visibility ──────────────────
   function checkMobile(): void {
-    const isNarrow = window.innerWidth < 900;
-    if (hamburger) hamburger.style.display  = isNarrow ? 'block' : 'none';
-    if (navLinks)  navLinks.style.display   = isNarrow ? 'none'  : 'flex';
-    if (!isNarrow) mobileMenu?.classList.remove('open');
+    const narrow = window.innerWidth < 900;
+    if (hamburger) hamburger.style.display = narrow ? 'block' : 'none';
+    if (navLinks)  navLinks.style.display  = narrow ? 'none'  : 'flex';
+    if (!narrow)   mobileMenu?.classList.remove('open');
   }
   window.addEventListener('resize', checkMobile);
   checkMobile();
@@ -88,29 +78,26 @@ import BoltDivider from '../components/BoltDivider.astro';
   // ── FAQ accordion ────────────────────────────────────
   document.querySelectorAll<HTMLButtonElement>('[data-faq-btn]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const body = btn.nextElementSibling as HTMLElement | null;
-      const icon = btn.querySelector<HTMLElement>('.faq-icon');
+      const body   = btn.nextElementSibling as HTMLElement | null;
+      const icon   = btn.querySelector<HTMLElement>('.faq-icon');
       const isOpen = body?.classList.contains('open') ?? false;
 
-      // Close all
       document.querySelectorAll<HTMLElement>('.faq-body.open').forEach((b) => {
         b.classList.remove('open');
-        const prevIcon = b.previousElementSibling?.querySelector<HTMLElement>('.faq-icon');
-        if (prevIcon) { prevIcon.textContent = '+'; prevIcon.style.transform = ''; }
+        const prev = b.previousElementSibling?.querySelector<HTMLElement>('.faq-icon');
+        if (prev) { prev.textContent = '+'; prev.style.transform = ''; }
       });
 
-      // Open clicked (if it wasn't already open)
       if (!isOpen && body && icon) {
         body.classList.add('open');
-        icon.textContent   = '−';
+        icon.textContent    = '−';
         icon.style.transform = 'rotate(180deg)';
       }
     });
   });
 
-  // ── Scroll reveal ─────────────────────────────────────
-  const revealEls = document.querySelectorAll<HTMLElement>('.reveal');
-  const observer  = new IntersectionObserver(
+  // ── Scroll reveal ────────────────────────────────────
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -121,5 +108,5 @@ import BoltDivider from '../components/BoltDivider.astro';
     },
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
-  revealEls.forEach((el) => observer.observe(el));
+  document.querySelectorAll<HTMLElement>('.reveal').forEach((el) => observer.observe(el));
 </script>
