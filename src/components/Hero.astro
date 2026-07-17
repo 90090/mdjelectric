@@ -17,8 +17,9 @@
       </div>
 
       <h1 class="hero-h1 animate-hero delay-1">
-        Reliable Residential &amp; Commercial Electrical Services
-        <img src="/images/MDJ_Logo.png" alt="MDJ Electric" class="hero-logo-inline text-center" />
+        <span class="hero-h1-line">Reliable Residential &amp; Commercial</span>
+        <img src="/images/logo_words.png" alt="MDJ Electric" class="hero-logo-inline" />
+        <span class="hero-h1-line">Electrical Services</span>
       </h1>
 
       <p class="hero-sub animate-hero delay-2">
@@ -67,7 +68,7 @@
       <div class="hero-photo-frame">
         <div class="hero-photo-glow"></div>
         <!-- Update this path to Brian's photo -->
-        <img src="./Images/brian-photo.jpg" alt="Brian Pugliese – MDJ Electric" class="hero-photo-fade" />
+        <img src="/images/Prospect_spring_fling.png" alt="Brian Pugliese - MDJ Electric" class="hero-photo-fade" />
       </div>
       <div class="hero-pill-top">⭐ 5-STAR RATED</div>
       <div class="hero-pill-btm">PROSPECT, CT</div>
@@ -102,16 +103,27 @@
   }
 
   .hero-h1 {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
-    font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.1;
-    color: #fff; margin-bottom: 24px; text-transform: uppercase;
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  }
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 900;
+  font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.1;
+  color: #fff; margin-bottom: 24px; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: 10px;
+}
 
-  .hero-logo-inline {
-    height: 52px; width: auto; object-fit: contain; flex-shrink: 0;
-  }
+.hero-h1-line { display: block; width: 100%; }
 
+.hero-logo-inline {
+  height: 52px; width: auto; object-fit: contain;
+  align-self: center; margin: 4px 0;
+}
+
+@media (max-width: 900px) {
+  .hero-h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+  .hero-logo-inline { height: 40px; }
+}
+@media (max-width: 540px) {
+  .hero-logo-inline { height: 32px; }
+}
   .hero-sub {
     color: #aaa; font-size: 1rem; line-height: 1.75;
     max-width: 520px; margin-bottom: 36px;
@@ -140,7 +152,7 @@
   .hero-photo-glow {
     position: absolute; top: -20px; right: -20px;
     width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(241,198,0,0.1), transparent 70%);
+    background: radial-gradient(circle, rgba(241,198,0,0.1), transparent 90%);
     pointer-events: none; z-index: 1;
   }
   .hero-pill-top {

@@ -28,8 +28,15 @@ import ContactForm from './ContactForm';
           </div>
           <div>
             <div class="info-label">Phone / Text</div>
-            <a href="tel:2037233902" class="info-value">(203) 723-3902</a>
+            <a href="tel:2037233902" class="info-value-text">(203) 723-3902</a>
+            <a href="sms:2037233902" class="btn-outline btn-text-us">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.04 1.21 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              Text Us
+            </a>
             <div class="info-hint">Call or text anytime</div>
+            
           </div>
         </div>
 
@@ -135,6 +142,12 @@ import ContactForm from './ContactForm';
   }
   .info-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.15em; color: #666; text-transform: uppercase; margin-bottom: 3px; }
   .info-value { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; text-decoration: none; display: block; }
+  .info-value-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; text-decoration: none; display: block; }
+  @media (max-width: 900px) {
+  .info-value-text {
+    display: none;
+  }
+}
   .info-value:hover { color: #f1c600; }
   .info-email { font-size: 0.9rem; word-break: break-all; }
   .info-hint  { font-size: 0.78rem; color: #666; margin-top: 2px; }
@@ -182,5 +195,14 @@ import ContactForm from './ContactForm';
     .form-panel      { padding: 24px 18px; }
     .form-title      { font-size: 1.2rem; }
     .info-email      { font-size: 0.82rem; }
+  }
+  .btn-text-us {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .btn-text-us {
+      display: inline-flex;
+    }
   }
 </style>
