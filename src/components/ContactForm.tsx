@@ -107,7 +107,7 @@ export default function ContactForm() {
   const label: React.CSSProperties = {
     display: 'block', fontFamily: "'Barlow Condensed', sans-serif",
     fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em',
-    textTransform: 'uppercase', color: '#888', marginBottom: '8px',
+    textTransform: 'uppercase', color: '#f1c600', marginBottom: '8px', paddingTop: '8px',
   };
   const focus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     (e.target.style.borderColor = '#f1c600');
