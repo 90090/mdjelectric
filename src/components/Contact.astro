@@ -80,7 +80,7 @@ import ContactForm from './ContactForm';
               <tbody>
                 <tr><td class="hours-day">Mon – Fri</td><td class="hours-time">8:00 AM – 6:00 PM</td></tr>
                 <tr><td class="hours-day">Saturday</td><td class="hours-time">8:00 AM – 6:00 PM</td></tr>
-                <tr class="hours-closed"><td class="hours-day">Sunday</td><td class="hours-time">Closed</td></tr>
+                <tr><td class="hours-day">Sunday</td><td class="hours-time">Closed</td></tr>
               </tbody>
             </table>
             <div class="emergency-note">
@@ -139,7 +139,7 @@ import ContactForm from './ContactForm';
     background: rgba(241,198,0,0.1); border: 1px solid rgba(241,198,0,0.25);
     border-radius: 8px; display: flex; align-items: center; justify-content: center;
   }
-  .info-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.15em; color: #666; text-transform: uppercase; margin-bottom: 3px; }
+  .info-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.15em; color: #f1c600; text-transform: uppercase; margin-bottom: 3px; }
   .info-value { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; text-decoration: none; display: block; }
   .info-value-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; text-decoration: none; display: block; }
   @media (max-width: 900px) {
@@ -153,8 +153,8 @@ import ContactForm from './ContactForm';
 
   /* Hours table */
   .hours-table { width: 100%; border-collapse: collapse; margin-top: 6px; }
-  .hours-day  { font-size: 0.83rem; color: #fff; padding: 4px 0; width: 50%; }
-  .hours-time { font-size: 0.83rem; color: #fff; font-weight: 600; text-align: right; padding: 4px 0; }
+  .hours-day  { font-size: 0.83rem; color: #fff; font-weight: 600; padding: 4px 0; width: 50%; }
+  .hours-time { font-size: 0.83rem; color: #fff;  text-align: right; padding: 4px 0; }
   .hours-closed .hours-day,
   .hours-closed .hours-time { color: #555; }
   .emergency-note {
