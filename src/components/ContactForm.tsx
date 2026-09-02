@@ -7,6 +7,7 @@ interface FormState {
   lastName:        string;
   phone:           string;
   email:           string;
+  location:        string;
   message:         string;
   preferText:      boolean;
   preferCall:      boolean;
@@ -24,6 +25,7 @@ export default function ContactForm() {
     lastName:    '',
     phone:       '',
     email:       '',
+    location:    '',
     message:     '',
     preferText:  false,
     preferCall:  false,
@@ -60,6 +62,7 @@ export default function ContactForm() {
       lastName:    form.lastName,
       phone:       form.phone,
       email:       form.email,
+      location:    form.location,
       message:     form.message,
       contactPref: prefs.length > 0 ? prefs.join(', ') : 'No preference specified',
     };
@@ -148,6 +151,14 @@ export default function ContactForm() {
         <label style={label} htmlFor="email">Email Address</label>
         <input id="email" name="email" type="email" placeholder="you@email.com"
           value={form.email} onChange={handleChange}
+          style={input} onFocus={focus} onBlur={blur} />
+      </div>
+
+      {/* Location */}
+      <div>
+        <label style={label} htmlFor="location">City / Town</label>
+        <input id="location" name="location" type="text" placeholder="e.g. Prospect, Cheshire, Waterbury..."
+          value={form.location} onChange={handleChange}
           style={input} onFocus={focus} onBlur={blur} />
       </div>
 
